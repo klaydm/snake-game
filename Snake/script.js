@@ -99,5 +99,5 @@ function jogo(){
 
   ctx.fillStyle = "#000";
   ctx.font = "20px Verdana";
-  ctx.fillText("Placar: " + score, 0, canvas.height - 0);
+  ctx.fillText("Pontuação: " + score, 0, canvas.height - 0);
 }
