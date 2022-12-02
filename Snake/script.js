@@ -12,6 +12,7 @@ window.onload = function(){
     velY = 0;
     grid = 20;
     tam = 3;
+    score = 0;
 
     //Chamando a função jogo a cada 100 milisegundos
     setInterval(jogo, 100);
@@ -58,7 +59,7 @@ function jogo(){
   for(let i = 0; i < snake.length; i++){
     ctx.fillRect(snake[i].x*grid, snake[i].y*grid, grid - 1, grid - 1)
     if(snake[i].x == positionX && snake[i].y == positionY){
-      tam = 3;
+      tam = 3, score = 0;
     }
   }
 
@@ -91,8 +92,12 @@ function jogo(){
 
   //Comendo
   if(positionX == foodX && positionY == foodY){
-    tam++;
+    tam++, score++;
     foodX = Math.floor(Math.random()*grid);
     foodY = Math.floor(Math.random()*grid);
   }
+
+  ctx.fillStyle = "#000";
+  ctx.font = "20px Verdana";
+  ctx.fillText("Placar: " + score, 0, canvas.height - 0);
 }
